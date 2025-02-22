@@ -1,0 +1,6 @@
+train: C:\dronetrack\Drone Detection.v1i.yolov8\train\images
+val: C:\dronetrack\Drone Detection.v1i.yolov8\valid\images
+test: C:\dronetrack\Drone Detection.v1i.yolov8\test\images
+
+nc: 1  # Number of classes (adjust if needed)
+names: ["drone"]
