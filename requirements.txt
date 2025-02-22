@@ -1,0 +1,10 @@
+Flask
+opencv-python
+torch
+torchvision
+numpy
+pandas
+twilio
+flask-mysqldb
+mysql-connector-python
+pyserial
