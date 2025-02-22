@@ -41,15 +41,30 @@ pip install -r requirements.txt
 2. Create a database and update `config.py` with your database credentials.
 3. Run the following SQL script to create necessary tables:
 ```sql
-CREATE DATABASE drone_detection;
-USE drone_detection;
-CREATE TABLE detections (
+CREATE DATABASE IF NOT EXISTS dronedb;
+USE dronedb;
+DROP TABLE IF EXISTS drone_detections;
+
+CREATE TABLE IF NOT EXISTS drone_detections (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-    latitude FLOAT,
-    longitude FLOAT,
+    detected_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    latitude DECIMAL(9,6),
+    longitude DECIMAL(9,6),
     image_path VARCHAR(255)
 );
+
+CREATE INDEX idx_detected_at ON drone_detections (detected_at);
+CREATE INDEX idx_lat_lon ON drone_
+INSERT INTO drone_detections (detected_at, latitude, longitude, image_path) VALUES
+(NOW(), 37.774929, -122.419416, 'static/detections/drone_20250218_103045.jpg'),
+(NOW(), 37.783333, -122.416667, 'static/detections/drone_20250218_094512.jpg');
+
+DESC drone_detections;
+
+SELECT * FROM drone_detections;
+
+SHOW INDEX FROM drone_detections;
+
 ```
 
 ### 4. Run the Flask Application
